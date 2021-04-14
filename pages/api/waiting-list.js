@@ -1,5 +1,6 @@
 export default async function handler(req, res) {
   if (req.method === "POST") {
+    console.log(req.body)
     await new Promise((resolve) => setTimeout(resolve, 1000));
 
     const { emailAddress, mobileNumber } = req.body;
