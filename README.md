@@ -24,3 +24,7 @@ The body should be JSON and contain `emailAddress` and `mobileNumber` fields
 
 - You're welcome to use any method of styling you feel comfortable with. We use styled-components at Ticketmaster but we don't expect you to learn a new library for this exercise!
 - You are encouraged to add comments in the code, or by extending this readme file explaining logic or reasoning for your decisions.
+
+# Submission Notes:
+- For the sake of time, I've tried to make this as simple as possible, so I've left some of the fancier bits of form validation (inline as you type etc) out.
+- I've included unit tests for one component (`WaitingListForm`) to demonstrate how I'd approach testing a component like that. Again for the sake of time I didn't write tests for every component.
