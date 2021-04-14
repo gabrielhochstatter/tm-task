@@ -1,1 +1,1 @@
-export { default } from "./WaitingListPage"
+export { default } from "./WaitingListPage";

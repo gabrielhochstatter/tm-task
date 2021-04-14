@@ -18,30 +18,30 @@ const Header = styled.header`
   svg {
     transform: scale(0.4);
   }
-`
+`;
 
 const WaitingListPage = () => {
   const [isPending, setIsPending] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
   const [isSuccess, setIsSuccess] = useState(false);
   const handleFormSubmit = async (formData) => {
-    setIsPending(true)
-    setErrorMessage("")
+    setIsPending(true);
+    setErrorMessage("");
 
     try {
       const data = await axios({
         url: "/api/waiting-list",
         method: "POST",
         headers: {
-          'Content-Type': 'application/json'
+          "Content-Type": "application/json",
         },
-        data: formData
-      })
-      setIsSuccess(true)
+        data: formData,
+      });
+      setIsSuccess(true);
     } catch (error) {
-      setErrorMessage(error.response.data.message)
+      setErrorMessage(error.response.data.message);
     } finally {
-      setIsPending(false)
+      setIsPending(false);
     }
   };
 
@@ -51,10 +51,15 @@ const WaitingListPage = () => {
         <Logo />
       </Header>
       <section>
-        {isSuccess
-          ? <Success />
-          : <WaitingListForm onSubmit={handleFormSubmit} isLoading={isPending} errorMessage={errorMessage} />
-        }
+        {isSuccess ? (
+          <Success />
+        ) : (
+          <WaitingListForm
+            onSubmit={handleFormSubmit}
+            isLoading={isPending}
+            errorMessage={errorMessage}
+          />
+        )}
       </section>
     </section>
   );

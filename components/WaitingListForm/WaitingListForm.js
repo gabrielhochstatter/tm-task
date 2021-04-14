@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import { styleSettings } from "../../utils/styleSettings"
+import { styleSettings } from "../../utils/styleSettings";
 
 const { errorRed, tmBlue, tmGrey, tmDarkBlue } = styleSettings.colors;
 
@@ -9,11 +9,11 @@ const Form = styled.form`
   max-width: 550px;
   padding: 46px;
   margin: 0 auto;
-`
+`;
 
 const Input = styled.input`
   display: block;
-  border: 1px solid ${props => props.errored ? errorRed : tmGrey};;
+  border: 1px solid ${(props) => (props.errored ? errorRed : tmGrey)};
   border-radius: none;
   padding: 4px 6px;
   outline: none;
@@ -25,21 +25,21 @@ const Input = styled.input`
     border-color: ${tmBlue};
     border-radius: none;
   }
-`
+`;
 
 const Label = styled.label`
   font-size: 13px;
-  color: ${props => props.errored ? errorRed : tmGrey};
-`
+  color: ${(props) => (props.errored ? errorRed : tmGrey)};
+`;
 
 const FormHeader = styled.h2`
   font-size: 23px;
-`
+`;
 
 const FormText = styled.p`
   font-size: 14px;
-  color: ${props => props.error ? errorRed : tmGrey};
-`
+  color: ${(props) => (props.error ? errorRed : tmGrey)};
+`;
 
 const Button = styled.button`
   width: 100%;
@@ -53,21 +53,20 @@ const Button = styled.button`
   justify-content: center;
   border: none;
 
-  &:hover{
+  &:hover {
     background-color: ${tmDarkBlue};
   }
-`
+`;
 
 const ERRORS = {
   INVALID_EMAIL: "INVALID_EMAIL",
-  INVALID_PHONE: "INVALID_PHONE"
+  INVALID_PHONE: "INVALID_PHONE",
 };
 
 const WaitingListForm = ({ onSubmit, isLoading, errorMessage }) => {
   const [emailValue, setEmailValue] = useState("");
   const [phoneValue, setPhoneValue] = useState("");
   const [errors, setErrors] = useState([]);
-
 
   const validateInputs = () => {
     // reset errors at the start
@@ -89,7 +88,7 @@ const WaitingListForm = ({ onSubmit, isLoading, errorMessage }) => {
     setErrors(validationErrors);
 
     return validationErrors;
-  }
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -97,12 +96,12 @@ const WaitingListForm = ({ onSubmit, isLoading, errorMessage }) => {
 
     if (validationErrors.length > 0) {
       return;
-    };
+    }
 
     onSubmit({
       emailAddress: emailValue,
-      mobileNumber: phoneValue
-    })
+      mobileNumber: phoneValue,
+    });
   };
 
   const isEmailErrored = errors.includes(ERRORS.INVALID_EMAIL) || errorMessage;
@@ -110,19 +109,25 @@ const WaitingListForm = ({ onSubmit, isLoading, errorMessage }) => {
   return (
     <Form id="form-body">
       <FormHeader>Don't miss out. Join the waiting list.</FormHeader>
-      <FormText>Sign up to be the first to know when new tickets are available.</FormText>
-      <Label htmlFor="email-input" errored={isEmailErrored}>Email:</Label>
+      <FormText>
+        Sign up to be the first to know when new tickets are available.
+      </FormText>
+      <Label htmlFor="email-input" errored={isEmailErrored}>
+        Email:
+      </Label>
       <Input
         type="email"
         id="email-input"
-        onChange={e => setEmailValue(e.target.value)}
+        onChange={(e) => setEmailValue(e.target.value)}
         errored={isEmailErrored}
       />
-      <Label htmlFor="phone-input" errored={isPhoneErrored}>Mobile Number:</Label>
+      <Label htmlFor="phone-input" errored={isPhoneErrored}>
+        Mobile Number:
+      </Label>
       <Input
         type="tel"
         id="phone-input"
-        onChange={e => setPhoneValue(e.target.value)}
+        onChange={(e) => setPhoneValue(e.target.value)}
         errored={isPhoneErrored}
       />
       {errorMessage ? <FormText error>{errorMessage}</FormText> : null}

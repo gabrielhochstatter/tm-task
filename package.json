@@ -23,6 +23,7 @@
     "enzyme-adapter-react-16": "^1.15.6",
     "jest": "^26.6.3",
     "next": "latest",
+    "prettier": "^2.2.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "styled-components": "^5.2.3"
@@ -31,5 +32,8 @@
   "keywords": [
     "next"
   ],
-  "description": "A \"Hello World\" application with multiple pages that shows how Next.js routing works."
+  "description": "A \"Hello World\" application with multiple pages that shows how Next.js routing works.",
+  "devDependencies": {
+    "pretty-quick": "^3.1.0"
+  }
 }

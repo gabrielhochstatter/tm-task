@@ -5,6 +5,6 @@ export const styleSettings = {
     tmDark: "#262626",
     tmGrey: "#768692",
     errorRed: "#D93A3A",
-    tmGreen: "#1bab1e"
-  }
-}
+    tmGreen: "#1bab1e",
+  },
+};
